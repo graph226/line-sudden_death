@@ -1,9 +1,10 @@
-# Almostly taken from http://qiita.com/masuidrive/items/1042d93740a7a72242a3
+# Almostly taken from http://qiita.com/yuya_takeyama/items/0660a59d13e2cd0b2516#comment-e6737f3166be32597681
 
 require 'bundler/setup'
 require 'sinatra/base'
 require 'json'
 require 'rest-client'
+require 'sudden_death'
 
 class App < Sinatra::Base
   post '/linebot/callback' do
@@ -14,7 +15,7 @@ class App < Sinatra::Base
         to: [msg['content']['from']],
         toChannel: 1383378250, # Fixed  value
         eventType: "138311608800106203", # Fixed value
-        content: msg['content']
+        content: msg['content'].sudden_death
       }
 
       endpoint_uri = 'https://trialbot-api.line.me/v1/events'
