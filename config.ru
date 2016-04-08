@@ -15,7 +15,7 @@ class App < Sinatra::Base
         to: [msg['content']['from']],
         toChannel: 1383378250, # Fixed  value
         eventType: "138311608800106203", # Fixed value
-        content: msg['content'].sudden_death
+        content: msg['content']
       }
 
       endpoint_uri = 'https://trialbot-api.line.me/v1/events'
